@@ -1,6 +1,6 @@
 
 local Settings = {
-    Killaura = {Value = false,Range = 18, CustomAnimations = true,Toolcheck = false},
+    Killaura = {Value = false,Range = 18, CostumAnimations = true,Toolcheck = false},
     Reach = {Value = false,Range = 18},
     AutoSprint = {Value = false},
     AntiKb = {Value = false,HorizontalKb = 0,VerticalKb = 0},
@@ -91,8 +91,8 @@ function lib:ToggleLib()
 end
 function lib:RavenFade()
     if not Ravenb4.Visible then
-        b4line.Visible = false
-        Ravenline.Visible = false
+        b4line.Visible = true
+        Ravenline.Visible = true
         b4Text:TweenPosition(UDim2.new(0, 0, 0.8, 0),Enum.EasingDirection.Out,Enum.EasingStyle.Sine,0.7,false)
         b4line:TweenPosition(UDim2.new(0, 0, 0, 0),Enum.EasingDirection.Out,Enum.EasingStyle.Sine,0.7,false)
         Raventext:TweenPosition(UDim2.new(0, 0, 0, 0),Enum.EasingDirection.Out,Enum.EasingStyle.Sine,0.7,false)
@@ -145,6 +145,11 @@ function lib:CreateWindow(text, Position)
     Ravenb4.BorderSizePixel = 0
     Ravenb4.Size = UDim2.new(0, 50, 0, 195)
 
+    UIStroke.Name = "UIStroke"
+    UIStroke.Parent = IraqV4
+    UIStroke.Color = Color3.fromRGB(255,255,255)
+    UIStroke.Thickness = 3
+
     Raventext.Name = "Raven text"
     Raventext.Parent = IraqV4
     Raventext.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -152,7 +157,7 @@ function lib:CreateWindow(text, Position)
     Raventext.BorderColor3 = Color3.fromRGB(0, 0, 0)
     Raventext.BorderSizePixel = 0
     Raventext.Size = UDim2.new(1, 0, 1, 0)
-    Raventext.Font = Enum.Font.Gotham
+    Raventext.Font = Enum.Font.FredokaOne
     Raventext.FontFace = Font.new("rbxasset://fonts/families/GothamSSm.json", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
     Raventext.Text = "i           r             a            q"
     Raventext.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -169,6 +174,12 @@ function lib:CreateWindow(text, Position)
     UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(157, 0, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(94, 242, 255))}
     UIGradient.Parent = Raventext
 
+    UIStroke_2.Name = "UIStroke"
+    UIStroke_2.Parent = Raventext
+    UIStroke_2.Color = Color3.fromRGB(255, 170, 0)
+    UIStroke_2.Thickness = 1
+    UIStroke_2.Transparency = 0
+
     b4Text.Name = "b4 Text"
     b4Text.Parent = Ravenb4
     b4Text.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -176,7 +187,7 @@ function lib:CreateWindow(text, Position)
     b4Text.BorderColor3 = Color3.fromRGB(0, 0, 0)
     b4Text.BorderSizePixel = 0
     b4Text.Size = UDim2.new(1, 0, 0.200000003, 0)
-    b4Text.Font = Enum.Font.Gotham
+    b4Text.Font = Enum.Font.FredokaOne
     b4Text.FontFace = Font.new("rbxasset://fonts/families/GothamSSm.json", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
     b4Text.Text = "b4"
     b4Text.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -193,11 +204,30 @@ function lib:CreateWindow(text, Position)
     UIGradient_2.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(157, 0, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(94, 242, 255))}
     UIGradient_2.Parent = b5Text
 
+    UIStroke_3.Name = "UIStroke"
+    UIStroke_3.Parent = v4Text
+    UIStroke_3.Color = Color3.fromRGB(255, 170, 0)
+    UIStroke_3.Thickness = 1
+    UIStroke_3.Transparency = 0
+
+    Ravenline.Name = "Raven line"
+    Ravenline.Parent = IraqV4
+    Ravenline.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    Ravenline.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    Ravenline.BorderSizePixel = 0
+    Ravenline.Size = UDim2.new(0, 3, 0, 200)
+
+    b4line.Name = "b4 line"
+    b4line.Parent = IraqV4
+    b4line.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    b4line.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    b4line.BorderSizePixel = 0
+    b4line.Size = UDim2.new(0, 3, 0, 200)
 
     MainFrame.Name = "MainFrame"
     MainFrame.Parent = ScreenGui
-    MainFrame.BackgroundColor3 = Color3.fromRGB(59, 59, 59)
-    MainFrame.BackgroundTransparency = 0
+    MainFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    MainFrame.BackgroundTransparency = 1
     MainFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
     MainFrame.BorderSizePixel = 0
     MainFrame.Position = Position
@@ -205,12 +235,23 @@ function lib:CreateWindow(text, Position)
 
     BackroundFrame.Name = "BackroundFrame"
     BackroundFrame.Parent = MainFrame
-    BackroundFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-    BackroundFrame.BackgroundTransparency = 0.5
+    BackroundFrame.BackgroundColor3 = Color3.fromRGB(27, 27, 27)
+    BackroundFrame.BackgroundTransparency = 0
     BackroundFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
     BackroundFrame.BorderSizePixel = 0
     BackroundFrame.Size = UDim2.new(1, 0, 1, 0)
     BackroundFrame.AutomaticSize = "Y"
+
+    UIStroke_4.Name = "UIStroke"
+    UIStroke_4.Parent = BackroundFrame
+    UIStroke_4.Color = Color3.fromRGB(255, 170, 0)
+    task.spawn(function()
+        repeat
+            task.wait()
+        until not b4Text
+    end)
+    UIStroke_4.Thickness = 3
+    UIStroke_4.Transparency = 0
 
     UICorner.CornerRadius = UDim.new(0, 5)
     UICorner.Parent = BackroundFrame
@@ -241,9 +282,9 @@ function lib:CreateWindow(text, Position)
     PlusButton.BorderSizePixel = 0
     PlusButton.Position = UDim2.new(0.75, 0, 0, -1)
     PlusButton.Size = UDim2.new(0.200000003, 0, 1, 0)
-    PlusButton.Font = Enum.Font.Gotham
+    PlusButton.Font = Enum.Font.FredokaOne
     PlusButton.Text = "+"
-    PlusButton.TextColor3 = Color3.fromRGB(0,255,0)
+    PlusButton.TextColor3 = Color3.fromRGB(255, 255, 255)
     PlusButton.TextSize = 40.000
 
 
@@ -255,7 +296,7 @@ function lib:CreateWindow(text, Position)
     Combattext.BorderSizePixel = 0
     Combattext.Position = UDim2.new(0.05, 0, 0, 0)
     Combattext.Size = UDim2.new(0.800000012, 0, 1, 0)
-    Combattext.Font = Enum.Font.Gotham
+    Combattext.Font = Enum.Font.FredokaOne
     Combattext.Text = text
     Combattext.TextColor3 = Color3.fromRGB(255,255,255)
     Combattext.TextSize = 30.000
@@ -270,7 +311,7 @@ function lib:CreateWindow(text, Position)
     RavenLogoButton.BorderSizePixel = 0
     RavenLogoButton.Position = UDim2.new(0.975, 0, -0.03, 0)
     RavenLogoButton.Size = UDim2.new(0, 40, 0, 40)
-    RavenLogoButton.Font = Enum.Font.SourceSans
+    RavenLogoButton.Font = Enum.Font.FredokaOne
     RavenLogoButton.Text = ""
     RavenLogoButton.TextColor3 = Color3.fromRGB(0, 0, 0)
     RavenLogoButton.TextSize = 14.000
@@ -330,11 +371,11 @@ function lib:CreateWindow(text, Position)
     PlusButton.MouseButton1Click:Connect(function ()
         if HolderFrame.Visible then
             HolderFrame.Visible = false
-            PlusButton.TextColor3 = Color3.fromRGB(0,255,0)
+            PlusButton.TextColor3 = Color3.fromRGB(255, 255, 255)
             PlusButton.Text = "+"
         else
             HolderFrame.Visible = true
-            PlusButton.TextColor3 = Color3.fromRGB(255,0,0)
+            PlusButton.TextColor3 = Color3.fromRGB(255, 255, 255)
             PlusButton.Text = "-"
         end
     end)
@@ -374,7 +415,7 @@ function lib:CreateWindow(text, Position)
         MainToggle.BorderColor3 = Color3.fromRGB(0, 0, 0)
         MainToggle.BorderSizePixel = 0
         MainToggle.Size = UDim2.new(1, 0, 0, 45)
-        MainToggle.Font = Enum.Font.Gotham
+        MainToggle.Font = Enum.Font.FredokaOne
         MainToggle.FontFace = Font.new("rbxasset://fonts/families/GothamSSm.json", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
         MainToggle.Text = options.Name
         MainToggle.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -398,15 +439,17 @@ function lib:CreateWindow(text, Position)
         BindButton.BorderSizePixel = 0
         BindButton.Position = UDim2.new(0.0599999987, 0, 0.25, 0)
         BindButton.Size = UDim2.new(0.879999995, 0, 0.5, 0)
-        BindButton.Font = Enum.Font.GothamBold
-        BindButton.Text = ""
+        BindButton.Font = Enum.Font.FredokaOne
+        BindButton.Text = "Bind :"
         BindButton.TextColor3 = Color3.fromRGB(255, 255, 255)
         task.spawn(function()
             repeat
-
+                BindButton.TextColor3 = Color3.fromHSV(tick()%5/5,1,1)
                 task.wait()
             until not BindButton
         end)
+        BindButton.TextSize = 14.000
+        BindButton.TextXAlignment = Enum.TextXAlignment.Left
 
         TextLabel.Parent = BindFrame
         TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -415,12 +458,12 @@ function lib:CreateWindow(text, Position)
         TextLabel.BorderSizePixel = 0
         TextLabel.Position = UDim2.new(0.25, 0, 0.25, 0)
         TextLabel.Size = UDim2.new(0.300000012, 0, 0.5, 0)
-        TextLabel.Font = Enum.Font.GothamBold
-        TextLabel.Text = "No Bind"
+        TextLabel.Font = Enum.Font.FredokaOne
+        TextLabel.Text = "NONE"
         TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
         task.spawn(function()
             repeat
-
+                TextLabel.TextColor3 = Color3.fromHSV(tick()%5/5,1,1)
                 task.wait()
             until not TextLabel
         end)
@@ -442,7 +485,7 @@ function lib:CreateWindow(text, Position)
         local function toggle()
             toggled = not toggled
             if toggled then
-                MainToggle.TextColor3 = Color3.fromRGB(0, 110, 255)
+                MainToggle.TextColor3 = Color3.fromRGB(255, 170, 0)
             else
                 MainToggle.TextColor3 = Color3.fromRGB(255, 255, 255)
             end
@@ -459,7 +502,7 @@ function lib:CreateWindow(text, Position)
         function Toggle:SetState(state)
             toggled = state
             if toggled then
-                MainToggle.TextColor3 = Color3.fromRGB(0, 110, 255)
+                MainToggle.TextColor3 = Color3.fromRGB(255, 170, 0)
             else
                 MainToggle.TextColor3 = Color3.fromRGB(255, 255, 255)
             end
@@ -539,7 +582,7 @@ function lib:CreateWindow(text, Position)
             TextButton.BorderSizePixel = 0
             TextButton.Position = UDim2.new(0.0500000007, 0, 0.600000024, 0)
             TextButton.Size = UDim2.new(0.899999976, 0, 0.300000012, 0)
-            TextButton.Font = Enum.Font.Gotham
+            TextButton.Font = Enum.Font.FredokaOne
             TextButton.Text = ""
             TextButton.TextColor3 = Color3.fromRGB(0, 0, 0)
             TextButton.TextSize = 14.000
@@ -565,7 +608,7 @@ function lib:CreateWindow(text, Position)
             SliderName.BorderSizePixel = 0
             SliderName.Position = UDim2.new(0.05, 0, 0.05, 0)
             SliderName.Size = UDim2.new(0.150000006, 0, 0.5, 0)
-            SliderName.Font = Enum.Font.Gotham
+            SliderName.Font = Enum.Font.FredokaOne
             SliderName.Text = options.Name
             SliderName.TextColor3 = Color3.fromRGB(255, 255, 255)
             SliderName.TextSize = 15.000
@@ -579,7 +622,7 @@ function lib:CreateWindow(text, Position)
             SliderValue.BorderSizePixel = 0
             SliderValue.Position = UDim2.new(0.8, 0,0.05, 0)
             SliderValue.Size = UDim2.new(0.150000006, 0, 0.5, 0)
-            SliderValue.Font = Enum.Font.Gotham
+            SliderValue.Font = Enum.Font.FredokaOne
             SliderValue.Text = options.Default
             SliderValue.TextColor3 = Color3.fromRGB(255, 255, 255)
             SliderValue.TextSize = 15.000
@@ -631,7 +674,7 @@ function lib:CreateWindow(text, Position)
             InfoContainer.BackgroundTransparency = 1
             InfoContainer.BorderColor3 = Color3.fromRGB(0, 0, 0)
             InfoContainer.BorderSizePixel = 0
-            InfoContainer.Font = Enum.Font.Gotham
+            InfoContainer.Font = Enum.Font.FredokaOne
             InfoContainer.Text = "    "..text
             InfoContainer.TextColor3 = Color3.fromRGB(255, 85, 0)
             InfoContainer.TextSize = 14.000
@@ -668,7 +711,7 @@ function lib:CreateWindow(text, Position)
             MiniToggle.BorderSizePixel = 0
             MiniToggle.Position = UDim2.new(0.0599999987, 0, 0.2, 0)
             MiniToggle.Size = UDim2.new(0.879999995, 0, 0, 20)
-            MiniToggle.Font = Enum.Font.Gotham
+            MiniToggle.Font = Enum.Font.FredokaOne
             MiniToggle.Text = "[-]"
             MiniToggle.TextColor3 = Color3.fromRGB(255, 255, 255)
             MiniToggle.TextSize = 15.000
@@ -682,7 +725,7 @@ function lib:CreateWindow(text, Position)
             MiniToggleText.BorderSizePixel = 0
             MiniToggleText.Size = UDim2.new(0.3, 0, 1, 0)
             MiniToggleText.Position = UDim2.new(0.125, 0, 0.05, 0)
-            MiniToggleText.Font = Enum.Font.Gotham
+            MiniToggleText.Font = Enum.Font.FredokaOne
             MiniToggleText.Text = options.Name
             MiniToggleText.TextColor3 = Color3.fromRGB(255, 255, 255)
             MiniToggleText.TextSize = 14.000
@@ -760,7 +803,7 @@ local function createnotification(title,text ,delay2)
         ModuleText.BorderSizePixel = 0
         ModuleText.Position = UDim2.new(0.0500000007, 0, 0, 0)
         ModuleText.Size = UDim2.new(0.949999988, 0, 0.400000006, 0)
-        ModuleText.Font = Enum.Font.GothamBold
+        ModuleText.Font = Enum.Font.FredokaOne
         ModuleText.Text = title
         ModuleText.TextColor3 = Color3.fromRGB(255, 255, 255)
         ModuleText.TextSize = 30.000
@@ -789,7 +832,7 @@ local function createnotification(title,text ,delay2)
         NotifyDescription.BorderSizePixel = 0
         NotifyDescription.Position = UDim2.new(0.0500000007, 0, 0.5, 0)
         NotifyDescription.Size = UDim2.new(0.949999988, 0, 0.400000006, 0)
-        NotifyDescription.Font = Enum.Font.GothamBold
+        NotifyDescription.Font = Enum.Font.FredokaOne
         NotifyDescription.Text = text
         NotifyDescription.TextColor3 = Color3.fromRGB(255, 255, 255)
         NotifyDescription.TextSize = 25.000
@@ -817,10 +860,10 @@ local function createnotification(title,text ,delay2)
 end
 createnotification("IraqV4 Loaded", "Press V to toggle GUI", 5)
 --Tabs
-Combat = lib:CreateWindow("combat",UDim2.new(0.1, 0, 0.1, 0))
-Blatant = lib:CreateWindow("blatant",UDim2.new(0.3, 0, 0.1, 0))
-Render = lib:CreateWindow("render",UDim2.new(0.6, 0, 0.1, 0))
-Utility = lib:CreateWindow("utility",UDim2.new(0.8, 0, 0.1, 0))
+Combat = lib:CreateWindow("Combat",UDim2.new(0.1, 0, 0.1, 0))
+Blatant = lib:CreateWindow("Blatant",UDim2.new(0.3, 0, 0.1, 0))
+Render = lib:CreateWindow("Render",UDim2.new(0.6, 0, 0.1, 0))
+Utility = lib:CreateWindow("Utility",UDim2.new(0.8, 0, 0.1, 0))
 --Locals
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
@@ -974,13 +1017,13 @@ Killaura = Combat:CreateToggle({
                                                     anim.AnimationId = "rbxassetid://4947108314"
                                                     local loader = LocalPlayer.Character:FindFirstChild("Humanoid"):FindFirstChild("Animator")
                                                     loader:LoadAnimation(anim):Play()
-                                                        if CustomAnimations then
-                                                            CustomAnimations = false
+                                                        if CostumAnimations then
+                                                            CostumAnimations = false
                                                             for i,v in pairs(SwordAnimations["Slow"]) do
                                                                 game:GetService("TweenService"):Create(Camera.Viewmodel.RightHand.RightWrist,TweenInfo.new(v.Time),{C0 = origC0 * v.CFrame}):Play()
                                                                 task.wait(v.Time-0.01)
                                                             end
-                                                            CustomAnimations = true
+                                                            CostumAnimations = true
                                                     end
                                             end)
                                                 game:GetService("ReplicatedStorage").rbxts_include.node_modules:FindFirstChild("@rbxts").net.out._NetManaged.SwordHit:FireServer({
@@ -1017,11 +1060,11 @@ Killaura:CreateSlider({
     end
 })
 Killaura:CreateToggle({
-    Name = "CustomAnimations",
-    StartingState = Settings.Killaura.CustomAnimations,
+    Name = "CostumAnimations",
+    StartingState = Settings.Killaura.CostumAnimations,
     Callback = function(Callback) 
-        CustomAnimations = Callback
-        Settings.Killaura.CustomAnimations = Callback
+        CostumAnimations = Callback
+        Settings.Killaura.CostumAnimations = Callback
     end
 })
 Killaura:CreateToggle({
@@ -1585,7 +1628,7 @@ Render:CreateToggle({
         Settings.GalaxySky.Value = Callback
         if SkyEnabled then
         Sky = Instance.new("Sky")
-        ID = 14087833879
+        ID = 14218738637
         Sky.SkyboxBk = "http://www.roblox.com/asset/?id="..ID
         Sky.SkyboxDn = "http://www.roblox.com/asset/?id="..ID
         Sky.SkyboxFt = "http://www.roblox.com/asset/?id="..ID
@@ -1612,10 +1655,6 @@ Render:CreateToggle({
             if Atmosphere then Atmosphere:Destroy() end
         end
 end})
-
-
-
-
 FOV = Render:CreateToggle({
     Name = "FOV",
     StartingState = Settings.FOV.Value,
@@ -1864,7 +1903,6 @@ textChatService.OnIncomingMessage = function(message: TextChatMessage)
     return properties
     
 end
-
 
 BedNuker = Utility:CreateToggle({
     Name = "Bed Nuker",
