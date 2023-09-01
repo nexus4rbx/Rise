@@ -1,6 +1,6 @@
 
 local Settings = {
-    Killaura = {Value = false,Range = 18, CostumAnimations = true,Toolcheck = false},
+    Killaura = {Value = false,Range = 18, CustomAnimations = true,Toolcheck = false},
     Reach = {Value = false,Range = 18},
     AutoSprint = {Value = false},
     AntiKb = {Value = false,HorizontalKb = 0,VerticalKb = 0},
@@ -91,8 +91,8 @@ function lib:ToggleLib()
 end
 function lib:RavenFade()
     if not Ravenb4.Visible then
-        b4line.Visible = true
-        Ravenline.Visible = true
+        b4line.Visible = false
+        Ravenline.Visible = false
         b4Text:TweenPosition(UDim2.new(0, 0, 0.8, 0),Enum.EasingDirection.Out,Enum.EasingStyle.Sine,0.7,false)
         b4line:TweenPosition(UDim2.new(0, 0, 0, 0),Enum.EasingDirection.Out,Enum.EasingStyle.Sine,0.7,false)
         Raventext:TweenPosition(UDim2.new(0, 0, 0, 0),Enum.EasingDirection.Out,Enum.EasingStyle.Sine,0.7,false)
@@ -145,11 +145,6 @@ function lib:CreateWindow(text, Position)
     Ravenb4.BorderSizePixel = 0
     Ravenb4.Size = UDim2.new(0, 50, 0, 195)
 
-    UIStroke.Name = "UIStroke"
-    UIStroke.Parent = IraqV4
-    UIStroke.Color = Color3.fromRGB(255,255,255)
-    UIStroke.Thickness = 3
-
     Raventext.Name = "Raven text"
     Raventext.Parent = IraqV4
     Raventext.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -173,12 +168,6 @@ function lib:CreateWindow(text, Position)
 
     UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(157, 0, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(94, 242, 255))}
     UIGradient.Parent = Raventext
-
-    UIStroke_2.Name = "UIStroke"
-    UIStroke_2.Parent = Raventext
-    UIStroke_2.Color = Color3.fromRGB(0,0,0)
-    UIStroke_2.Thickness = 1
-    UIStroke_2.Transparency = 0
 
     b4Text.Name = "b4 Text"
     b4Text.Parent = Ravenb4
@@ -204,30 +193,11 @@ function lib:CreateWindow(text, Position)
     UIGradient_2.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(157, 0, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(94, 242, 255))}
     UIGradient_2.Parent = b5Text
 
-    UIStroke_3.Name = "UIStroke"
-    UIStroke_3.Parent = v4Text
-    UIStroke_3.Color = Color3.fromRGB(0,0,0)
-    UIStroke_3.Thickness = 1
-    UIStroke_3.Transparency = 0
-
-    Ravenline.Name = "Raven line"
-    Ravenline.Parent = IraqV4
-    Ravenline.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    Ravenline.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    Ravenline.BorderSizePixel = 0
-    Ravenline.Size = UDim2.new(0, 3, 0, 200)
-
-    b4line.Name = "b4 line"
-    b4line.Parent = IraqV4
-    b4line.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    b4line.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    b4line.BorderSizePixel = 0
-    b4line.Size = UDim2.new(0, 3, 0, 200)
 
     MainFrame.Name = "MainFrame"
     MainFrame.Parent = ScreenGui
-    MainFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-    MainFrame.BackgroundTransparency = 1
+    MainFrame.BackgroundColor3 = Color3.fromRGB(59, 59, 59)
+    MainFrame.BackgroundTransparency = 0
     MainFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
     MainFrame.BorderSizePixel = 0
     MainFrame.Position = Position
@@ -241,18 +211,6 @@ function lib:CreateWindow(text, Position)
     BackroundFrame.BorderSizePixel = 0
     BackroundFrame.Size = UDim2.new(1, 0, 1, 0)
     BackroundFrame.AutomaticSize = "Y"
-
-    UIStroke_4.Name = "UIStroke"
-    UIStroke_4.Parent = BackroundFrame
-    UIStroke_4.Color = Color3.fromRGB(0,0,0)
-    task.spawn(function()
-        repeat
-            UIStroke_4.Color = Color3.fromHSV(tick()%5/5,1,1)
-            task.wait()
-        until not b4Text
-    end)
-    UIStroke_4.Thickness = 3
-    UIStroke_4.Transparency = 0
 
     UICorner.CornerRadius = UDim.new(0, 5)
     UICorner.Parent = BackroundFrame
@@ -441,16 +399,14 @@ function lib:CreateWindow(text, Position)
         BindButton.Position = UDim2.new(0.0599999987, 0, 0.25, 0)
         BindButton.Size = UDim2.new(0.879999995, 0, 0.5, 0)
         BindButton.Font = Enum.Font.GothamBold
-        BindButton.Text = "Bind :"
+        BindButton.Text = ""
         BindButton.TextColor3 = Color3.fromRGB(255, 255, 255)
         task.spawn(function()
             repeat
-                BindButton.TextColor3 = Color3.fromHSV(tick()%5/5,1,1)
+
                 task.wait()
             until not BindButton
         end)
-        BindButton.TextSize = 14.000
-        BindButton.TextXAlignment = Enum.TextXAlignment.Left
 
         TextLabel.Parent = BindFrame
         TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -460,11 +416,11 @@ function lib:CreateWindow(text, Position)
         TextLabel.Position = UDim2.new(0.25, 0, 0.25, 0)
         TextLabel.Size = UDim2.new(0.300000012, 0, 0.5, 0)
         TextLabel.Font = Enum.Font.GothamBold
-        TextLabel.Text = "NONE"
+        TextLabel.Text = "No Bind"
         TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
         task.spawn(function()
             repeat
-                TextLabel.TextColor3 = Color3.fromHSV(tick()%5/5,1,1)
+
                 task.wait()
             until not TextLabel
         end)
@@ -1018,13 +974,13 @@ Killaura = Combat:CreateToggle({
                                                     anim.AnimationId = "rbxassetid://4947108314"
                                                     local loader = LocalPlayer.Character:FindFirstChild("Humanoid"):FindFirstChild("Animator")
                                                     loader:LoadAnimation(anim):Play()
-                                                        if CostumAnimations then
-                                                            CostumAnimations = false
+                                                        if CustomAnimations then
+                                                            CustomAnimations = false
                                                             for i,v in pairs(SwordAnimations["Slow"]) do
                                                                 game:GetService("TweenService"):Create(Camera.Viewmodel.RightHand.RightWrist,TweenInfo.new(v.Time),{C0 = origC0 * v.CFrame}):Play()
                                                                 task.wait(v.Time-0.01)
                                                             end
-                                                            CostumAnimations = true
+                                                            CustomAnimations = true
                                                     end
                                             end)
                                                 game:GetService("ReplicatedStorage").rbxts_include.node_modules:FindFirstChild("@rbxts").net.out._NetManaged.SwordHit:FireServer({
@@ -1061,11 +1017,11 @@ Killaura:CreateSlider({
     end
 })
 Killaura:CreateToggle({
-    Name = "CostumAnimations",
-    StartingState = Settings.Killaura.CostumAnimations,
+    Name = "CustomAnimations",
+    StartingState = Settings.Killaura.CustomAnimations,
     Callback = function(Callback) 
-        CostumAnimations = Callback
-        Settings.Killaura.CostumAnimations = Callback
+        CustomAnimations = Callback
+        Settings.Killaura.CustomAnimations = Callback
     end
 })
 Killaura:CreateToggle({
@@ -1622,14 +1578,14 @@ Speed:CreateSlider({
 })
 local Sky
 Render:CreateToggle({
-    Name = "Galaxy Sky",
+    Name = "Custom Sky",
     StartingState = Settings.GalaxySky.Value,
     Callback = function(Callback) 
         SkyEnabled = Callback
         Settings.GalaxySky.Value = Callback
         if SkyEnabled then
         Sky = Instance.new("Sky")
-        ID = 8281961896
+        ID = 14087833879
         Sky.SkyboxBk = "http://www.roblox.com/asset/?id="..ID
         Sky.SkyboxDn = "http://www.roblox.com/asset/?id="..ID
         Sky.SkyboxFt = "http://www.roblox.com/asset/?id="..ID
@@ -1656,6 +1612,10 @@ Render:CreateToggle({
             if Atmosphere then Atmosphere:Destroy() end
         end
 end})
+
+
+
+
 FOV = Render:CreateToggle({
     Name = "FOV",
     StartingState = Settings.FOV.Value,
@@ -1904,6 +1864,7 @@ textChatService.OnIncomingMessage = function(message: TextChatMessage)
     return properties
     
 end
+
 
 BedNuker = Utility:CreateToggle({
     Name = "Bed Nuker",
