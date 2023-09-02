@@ -1993,3 +1993,5 @@ ChestStealer:CreateSlider({
         Settings.ChestStealer.Seconds = Callback
     end
 })
+
+-- notihng
