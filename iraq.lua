@@ -1,6 +1,6 @@
 
 local Settings = {
-    Killaura = {Value = false,Range = 18, CostumAnimations = true,Toolcheck = false},
+    Killaura = {Value = false,Range = 18, CustomAnimations = true,Toolcheck = false},
     Reach = {Value = false,Range = 18},
     AutoSprint = {Value = false},
     AntiKb = {Value = false,HorizontalKb = 0,VerticalKb = 0},
@@ -163,7 +163,7 @@ function lib:CreateWindow(text, Position)
     Raventext.TextColor3 = Color3.fromRGB(255, 255, 255)
     task.spawn(function()
         repeat
-            Raventext.TextColor3 = Color3.fromHSV(tick()%5/5,1,1)
+            Raventext.TextColor3 = Color3.fromRGB(255, 255, 255)
             task.wait()
         until not Raventext
     end)
@@ -193,7 +193,7 @@ function lib:CreateWindow(text, Position)
     b4Text.TextColor3 = Color3.fromRGB(255, 255, 255)
     task.spawn(function()
         repeat
-            b4Text.TextColor3 = Color3.fromHSV(tick()%5/5,1,1)
+            b4Text.TextColor3 = Color3.fromRGB(255, 255, 255)
             task.wait()
         until not b4Text
     end)
@@ -444,7 +444,7 @@ function lib:CreateWindow(text, Position)
         BindButton.TextColor3 = Color3.fromRGB(255, 255, 255)
         task.spawn(function()
             repeat
-                BindButton.TextColor3 = Color3.fromHSV(tick()%5/5,1,1)
+                BindButton.TextColor3 = Color3.fromRGB(255, 255, 255)
                 task.wait()
             until not BindButton
         end)
@@ -463,7 +463,7 @@ function lib:CreateWindow(text, Position)
         TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
         task.spawn(function()
             repeat
-                TextLabel.TextColor3 = Color3.fromHSV(tick()%5/5,1,1)
+                TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
                 task.wait()
             until not TextLabel
         end)
@@ -592,7 +592,7 @@ function lib:CreateWindow(text, Position)
             SliderInner.BackgroundColor3 = Color3.fromRGB(255, 39, 1)
             task.spawn(function()
                 repeat
-                    SliderInner.BackgroundColor3 = Color3.fromHSV(tick()%5/5,1,1)
+                    SliderInner.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                     task.wait()
                 until not SliderInner
             end)
@@ -1017,13 +1017,13 @@ Killaura = Combat:CreateToggle({
                                                     anim.AnimationId = "rbxassetid://4947108314"
                                                     local loader = LocalPlayer.Character:FindFirstChild("Humanoid"):FindFirstChild("Animator")
                                                     loader:LoadAnimation(anim):Play()
-                                                        if CostumAnimations then
-                                                            CostumAnimations = false
+                                                        if CustomAnimations then
+                                                            CustomAnimations = false
                                                             for i,v in pairs(SwordAnimations["Slow"]) do
                                                                 game:GetService("TweenService"):Create(Camera.Viewmodel.RightHand.RightWrist,TweenInfo.new(v.Time),{C0 = origC0 * v.CFrame}):Play()
                                                                 task.wait(v.Time-0.01)
                                                             end
-                                                            CostumAnimations = true
+                                                            CustomAnimations = true
                                                     end
                                             end)
                                                 game:GetService("ReplicatedStorage").rbxts_include.node_modules:FindFirstChild("@rbxts").net.out._NetManaged.SwordHit:FireServer({
@@ -1060,11 +1060,11 @@ Killaura:CreateSlider({
     end
 })
 Killaura:CreateToggle({
-    Name = "CostumAnimations",
-    StartingState = Settings.Killaura.CostumAnimations,
+    Name = "CustomAnimations",
+    StartingState = Settings.Killaura.CustomAnimations,
     Callback = function(Callback) 
-        CostumAnimations = Callback
-        Settings.Killaura.CostumAnimations = Callback
+        CustomAnimations = Callback
+        Settings.Killaura.CustomAnimations = Callback
     end
 })
 Killaura:CreateToggle({
