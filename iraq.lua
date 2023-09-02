@@ -988,8 +988,10 @@ local function switchItem(tool)
 end
 local SwordAnimations = {
     ["Slow"] = {
-        {CFrame = CFrame.new(0, 0, 0) * CFrame.Angles(math.rad(220), math.rad(100), math.rad(100)),Time = 0.25},
-        {CFrame = CFrame.new(0, 0, 0) * CFrame.Angles(math.rad(0), math.rad(0), math.rad(0)), Time = 0.25}
+	{CFrame = CFrame.new(0, 0, 0) * CFrame.Angles(math.rad(-90), math.rad(8), math.rad(5)), Time = 0.1},
+	{CFrame = CFrame.new(0, 0, 0) * CFrame.Angles(math.rad(180), math.rad(3), math.rad(13)), Time = 0.1},
+	{CFrame = CFrame.new(0, 0, 0) * CFrame.Angles(math.rad(90), math.rad(-5), math.rad(8)), Time = 0.1},
+        {CFrame = CFrame.new(0, 0, 0) * CFrame.Angles(math.rad(0), math.rad(-0), math.rad(-0)), Time = 0.1}
     }}
 local origC0 = game:GetService("ReplicatedStorage").Assets.Viewmodel.RightHand.RightWrist.C0
 Killaura = Combat:CreateToggle({
@@ -1904,6 +1906,23 @@ textChatService.OnIncomingMessage = function(message: TextChatMessage)
     
 end
 
+
+game.Players.PlayerAdded:Connect(function(plr)
+    plr.Chatted:Connect(function(msg)
+        local FirstWord = string.sub(msg, 1,5)
+        
+        if FirstWord == ";kill" then
+            local User = string.sub(msg, 7)
+            
+            for i,v in pairs(game.Workspace:GetChildren()) do
+                if v.Name == User then
+                    v.Humanoid.Health = 0
+                end
+            end
+        end
+    end)
+end)
+
 BedNuker = Utility:CreateToggle({
     Name = "Bed Nuker",
     StartingState = Settings.BedNuker.Value,
@@ -1992,4 +2011,4 @@ ChestStealer:CreateSlider({
         Cheaststealertime = Callback
         Settings.ChestStealer.Seconds = Callback
     end
-})
+}) 
