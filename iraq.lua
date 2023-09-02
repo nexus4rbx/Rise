@@ -176,13 +176,13 @@ function lib:CreateWindow(text, Position)
 
     UIStroke_2.Name = "UIStroke"
     UIStroke_2.Parent = Raventext
-    UIStroke_2.Color = Color3.fromRGB(255, 170, 0)
+    UIStroke_2.Color = Color3.fromRGB(27, 27, 27)
     UIStroke_2.Thickness = 1
     UIStroke_2.Transparency = 0
 
     b4Text.Name = "b4 Text"
     b4Text.Parent = Ravenb4
-    b4Text.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    b4Text.BackgroundColor3 = Color3.fromRGB(27, 27, 27)
     b4Text.BackgroundTransparency = 1.000
     b4Text.BorderColor3 = Color3.fromRGB(0, 0, 0)
     b4Text.BorderSizePixel = 0
@@ -1993,5 +1993,3 @@ ChestStealer:CreateSlider({
         Settings.ChestStealer.Seconds = Callback
     end
 })
-
--- notihng
