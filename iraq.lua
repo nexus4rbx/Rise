@@ -206,7 +206,7 @@ function lib:CreateWindow(text, Position)
 
     UIStroke_3.Name = "UIStroke"
     UIStroke_3.Parent = v4Text
-    UIStroke_3.Color = Color3.fromRGB(255, 170, 0)
+    UIStroke_3.Color = Color3.fromRGB(27, 27, 27)
     UIStroke_3.Thickness = 1
     UIStroke_3.Transparency = 0
 
@@ -244,7 +244,7 @@ function lib:CreateWindow(text, Position)
 
     UIStroke_4.Name = "UIStroke"
     UIStroke_4.Parent = BackroundFrame
-    UIStroke_4.Color = Color3.fromRGB(255, 170, 0)
+    UIStroke_4.Color = Color3.fromRGB(255, 0, 0)
     task.spawn(function()
         repeat
             task.wait()
@@ -485,7 +485,7 @@ function lib:CreateWindow(text, Position)
         local function toggle()
             toggled = not toggled
             if toggled then
-                MainToggle.TextColor3 = Color3.fromRGB(255, 170, 0)
+                MainToggle.TextColor3 = Color3.fromRGB(255, 0, 0)
             else
                 MainToggle.TextColor3 = Color3.fromRGB(255, 255, 255)
             end
@@ -502,7 +502,7 @@ function lib:CreateWindow(text, Position)
         function Toggle:SetState(state)
             toggled = state
             if toggled then
-                MainToggle.TextColor3 = Color3.fromRGB(255, 170, 0)
+                MainToggle.TextColor3 = Color3.fromRGB(255, 0, 0)
             else
                 MainToggle.TextColor3 = Color3.fromRGB(255, 255, 255)
             end
